@@ -1,1 +1,11 @@
 <h1>daê nóia</h1>
+
+{% for post in posts %}
+    <div>
+        <br/>
+        <h4>Author: {{ post.author }}</a></h4>
+        <p>published: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
