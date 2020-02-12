@@ -1,7 +1,7 @@
 {% load static %}
 <html>
     <head>
-        <title>Django Gals blog</title>
+        <title>cinq gals blog</title>
 
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -10,16 +10,16 @@
 
     <body>
         <div class="page-header">
-            <h2><a href="/">Hello nóia</a></h2>
+            <h2><a href="/">cinq gals blog</a></h2>
+
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% else %}
+                <a class="top-menu"><span class="glyphicon glyphicon-plus grey"></span></a>
+            {% endif %}
         </div>
 
         <div class="content container">
-            {% if user.is_authenticated %}
-                <div class="row">
-                    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>Add post</a>
-                </div>
-            {% endif %}
-            
             <div class="row">
                 <div class="col-md-8">
                 {% block content %}
