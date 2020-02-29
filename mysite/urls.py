@@ -16,8 +16,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from aula4.views import index as a4index
+from aula5.views import index as a5index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
+    path('', include("aula3.urls")),
+    path('aula4', a4index),
+    path('aula5', a5index)
 ]
